@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Dropbox Dashboard',
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home: const Dashboard(),
     );
   }
 }

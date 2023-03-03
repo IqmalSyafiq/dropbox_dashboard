@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Sidebar extends StatelessWidget {
-  final List<Widget> items;
-  final Function(int)? onTap;
-
-  Sidebar({required this.items, this.onTap});
+  const Sidebar({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class Sidebar extends StatelessWidget {
       child: Container(
         width: 200,
         decoration: BoxDecoration(
-          color: Colors.grey[200],
+          color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.grey[300]!,
@@ -24,14 +23,24 @@ class Sidebar extends StatelessWidget {
             ),
           ],
         ),
-        child: ListView.builder(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: items[index],
-              onTap: onTap != null ? () => onTap!(index) : null,
-            );
-          },
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {
+                // Navigate to the home screen
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                // Navigate to the settings screen
+              },
+            ),
+          ],
         ),
       ),
     );
